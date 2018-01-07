@@ -1,9 +1,9 @@
-from _pglsg import *
+from ._pglsg import *
 
-import cspline
-import bezier_nurbs
+from . import cspline
+from . import bezier_nurbs
 import warnings
-from colormap import *
+from .colormap import *
 
 NurbsCurve.CSpline = staticmethod(cspline.cspline)
 NurbsCurve2D.CBezier = staticmethod(bezier_nurbs.cubic_bezier2D)
@@ -171,6 +171,6 @@ Polyline2D.__getinitargs__ = __pol_getinitargs__
 del __pol_getinitargs__
 
 
-from editablequantisedfunction import *
+from .editablequantisedfunction import *
 
-import __docufy
+from . import __docufy

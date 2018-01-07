@@ -56,7 +56,7 @@ class AscCodec (sg.SceneCodec):
                 if len(values) > 3:
                     if not isptsfile and not istxtfile: col.append(sg.Color4(int(values[3]),int(values[4]),int(values[5]),0))
                     else : col.append(sg.Color4(int(values[4]),int(values[5]),int(values[6]),0))
-            except Exception,e:
+            except Exception as e:
                 if isptsfile and len(values) == 4:
                     #warnings.warn("Skip line "+str(i+isptsfile)+" in file '"+fname+"'.")
                     pass
@@ -78,7 +78,7 @@ class AscCodec (sg.SceneCodec):
 
     def write(self,fname,scene):
         """ write an ascii point file """
-        print("Write "+fname)
+        print(("Write "+fname))
         d = alg.Discretizer()
         f = file(fname,'w')
         isptsfile = ('.pts' in fname)
