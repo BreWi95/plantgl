@@ -16,13 +16,23 @@ qhull_libs_suffix = 'static'
 if 'CPU_COUNT' in os.environ:
     num_jobs = os.environ['CPU_COUNT']
 
+library_inc = os.environ.get('LIBRARY_INC',os.path.join(os.environ['CONDA_PREFIX'],'Library','include'))
+
 try:
-    qtconfig = file(os.path.join(os.environ['LIBRARY_INC'],'qt','QtCore','qglobal.h'),'r').read()
-    pattern = '#define QT_VERSION '
-    i = qtconfig.index(pattern)+len(pattern)
-    qtconfig = qtconfig[i:].splitlines()[0]
-    QT_VERSION = eval(qtconfig) >> 16
-except:
+    qversionconfig = file(os.path.join(library_inc,'qt','QtCore','qconfig.h'),'r').read()
+    pattern = '#define QT_VERSION_MAJOR '
+    try:
+        i = qversionconfig.index(pattern)+len(pattern)
+        qversionconfig = qversionconfig[i:].splitlines()[0]
+        QT_VERSION = eval(qversionconfig)
+    except ValueError, ie:
+        qversionconfig = file(os.path.join(library_inc,'qt','QtCore','qglobal.h'),'r').read()
+        pattern = '#define QT_VERSION '
+        i = qversionconfig.index(pattern)+len(pattern)
+        qversionconfig = qversionconfig[i:].splitlines()[0] >> 16
+        QT_VERSION = eval(qversionconfig)
+except Exception, ie:
+    print 'Autodetect qt error:', ie
     QT_VERSION = 4
 
 EXTRA_LINKFLAGS ='/NODEFAULTLIB:boost_python-vc140-mt-1_65_1'
