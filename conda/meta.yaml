@@ -29,8 +29,9 @@ requirements:
    - flex 2.5.39 [unix]
    - m2-bison [win]
    - m2-flex  [win]
-   - cgal [unix]
-   - gmp [unix]
+   - cgal 
+   - gmp 
+   - mpfr
    - eigen
    - ann
    - qhull 
@@ -41,9 +42,9 @@ requirements:
    #- openalea.core
    - qt 
    - pyqt
-   - gmp [unix]
-   - mpfr [unix]
-   - cgal  [unix]
+   - gmp 
+   - mpfr 
+   - cgal 
    - qhull 
    - ann
    - boost
