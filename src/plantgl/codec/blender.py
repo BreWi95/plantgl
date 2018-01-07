@@ -217,8 +217,7 @@ def sc_to_blender (sc) :
 	d = Discretizer()
 	for ind,shp in enumerate(sc) :
 		if ind % 10 == 0 :
-			print(ind, end=' ')
-			sys.stdout.flush()
+			print(ind)
 		ob = shp_to_blender(shp,d)
 		bldsc.link(ob)
 		ob.sel = True
