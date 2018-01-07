@@ -134,7 +134,7 @@ def getSceneGraphNodes(baseclass):
             try:
                 i = c()
                 cl.append(c)
-            except RuntimeError,e:
+            except RuntimeError as e:
                 # Cannot instanciate this class. Boost return runtime error.
                 pass
             except:
@@ -152,7 +152,7 @@ PGLCLASS = getSceneGraphNodes((sg.Geometry,sg.Shape3D,sg.Appearance))+[sg.Textur
 #sg.Polyline2D, sg.PointSet2D, sg.Disc, sg.Revolution, sg.Swung, sg.Text, sg.Font, sg.IFS, sg.AxisRotated,
 #sg.EulerRotated, sg.Oriented, sg.Scaled, sg.Translated, sg.Tapered, sg.Shape, sg.Material, sg.ImageTexture]
 
-map(lambda x : generatePglNode(x),PGLCLASS)
+for pc in PGLCLASS : generatePglNode(pc)
 
 PGLCLASS+=[sg.QuantisedFunction]
 

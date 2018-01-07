@@ -21,7 +21,7 @@ This module provide a set of geometrical concepts to express tissue geometry
 __license__= "Cecill-C"
 __revision__=" $Id$ "
 
-from interface.abstract_geometry import AbstractShape
+from .interface.abstract_geometry import AbstractShape
 volume_coeff=[1.,2.,2./3.]
 
 class Sphere (AbstractShape) :

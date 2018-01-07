@@ -29,7 +29,7 @@ __revision__ = " $Id: obj.py 2242 2010-02-08 17:03:26Z cokelaer $ "
 import os
 import warnings
 from random import randint
-from itertools import izip_longest
+from itertools import zip_longest
 
 import openalea.plantgl.math as mt
 import openalea.plantgl.scenegraph as sg
@@ -145,7 +145,7 @@ class Faces(object):
 
     def obj(self, output):
         """ Write the faces in an obj format. """
-        gen = izip_longest(self.vindex, self.tindex,self.nindex, fillvalue=None)
+        gen = zip_longest(self.vindex, self.tindex,self.nindex, fillvalue=None)
         offset = self.offset
         output.write('g %s \n'%self.name)
         output.write('usemtl %s \n' % self.appearancename)
@@ -246,9 +246,9 @@ class ObjCodec (sg.SceneCodec):
         scene = sg.Scene()
         for g in self.groups:
             if g:
-                print 'NAME: ', g.name
+                print('NAME: ', g.name)
                 s = g.shape(self.vertices, self.normals, self.textures)
-                print 'Shape ', s
+                print('Shape ', s)
                 if s and s.geometry: 
                     scene.add(s)
 
@@ -272,12 +272,12 @@ class ObjCodec (sg.SceneCodec):
         self.vertices.append((x,y,z))
 
     def _vertex_texture(self, args):
-        l = map(float,args)
+        l = list(map(float,args))
         self.textures.append(l[:2])
 
     def _vertex_normal(self, args):
         """ Parse a vertex normal."""
-        x, y, z = map(float, args)
+        x, y, z = list(map(float, args))
         self.normals.append((x,y,z))
 
     def _face(self, args):
@@ -363,7 +363,7 @@ class ObjCodec (sg.SceneCodec):
         :Examples:
             import openalea.plantgl.scenegraph as sg
             scene = sg.Scene()"""
-        print("Write "+fname)
+        print(("Write "+fname))
         d = alg.Discretizer()
         f = file(fname,'w')
 
@@ -455,11 +455,11 @@ class ObjCodec (sg.SceneCodec):
                 fmat.write("\tmap_Ka {} \n".format(tgafname(app.image.filename)))
                 fmat.write("\tillum 2\n")
         fmat.close()
-        print("Write "+mtl_file)
+        print(("Write "+mtl_file))
 
         for img in imgstoconvert:
             tgaimg = renameimg(img)
-            print("Write "+tgaimg)
+            print(("Write "+tgaimg))
     
 
 
