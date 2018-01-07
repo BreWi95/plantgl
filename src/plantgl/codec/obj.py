@@ -29,7 +29,11 @@ __revision__ = " $Id: obj.py 2242 2010-02-08 17:03:26Z cokelaer $ "
 import os
 import warnings
 from random import randint
-from itertools import zip_longest
+try:
+    from itertools import zip_longest
+except:
+    from itertools import izip_longest as zip_longest
+
 
 import openalea.plantgl.math as mt
 import openalea.plantgl.scenegraph as sg
