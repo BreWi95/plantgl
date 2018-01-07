@@ -12,7 +12,7 @@ def install():
     base_dir = get_base_dir('plantgl')
 
     bin_dir = pj(base_dir, "bin")
-    print bin_dir
+    print(bin_dir)
     
     create_win_shortcut(name = 'PlantGL Viewer',
                         target = pj(bin_dir, "pglviewer.exe",),

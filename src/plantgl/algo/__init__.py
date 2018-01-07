@@ -1,1 +1,1 @@
-from _pglalgo import *
+from ._pglalgo import *

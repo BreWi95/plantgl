@@ -10,7 +10,7 @@ import versionreader
 
 from openalea.deploy.metainfo import read_metainfo
 metadata = read_metainfo('metainfo.ini', verbose=True)
-for key,value in metadata.iteritems():
+for key,value in metadata.items():
     exec("%s = '%s'" % (key, value))
 
 
