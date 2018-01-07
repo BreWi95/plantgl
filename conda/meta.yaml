@@ -23,7 +23,7 @@ requirements:
    - openalea.deploy
    - scons
    - openalea.sconsx
-   - qt <5
+   - qt 
    - boost
    - bison [unix]
    - flex 2.5.39 [unix]
@@ -39,7 +39,7 @@ requirements:
    - python
    - openalea.deploy
    #- openalea.core
-   - qt <5
+   - qt 
    - pyqt
    - gmp [unix]
    - mpfr [unix]
