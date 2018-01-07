@@ -34,7 +34,6 @@ try:
 except:
     from itertools import izip_longest as zip_longest
 
-
 import openalea.plantgl.math as mt
 import openalea.plantgl.scenegraph as sg
 import openalea.plantgl.algo as alg
