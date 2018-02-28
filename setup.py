@@ -18,8 +18,8 @@ for key,value in metadata.items():
 meta_version = version 
 version = versionreader.getPGLVersionString()
 if meta_version != version:
-    print 'Warning:: Update the version in metainfo.ini !!'
-print pkg_name,': version =',version
+    print ('Warning:: Update the version in metainfo.ini !!')
+print (pkg_name,': version =',version)
 
 # Scons build directory
 build_prefix= "build-scons"
